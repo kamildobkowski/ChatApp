@@ -16,17 +16,20 @@ if (!app.Environment.IsDevelopment())
 	app.UseHsts();
 }
 
-app.UseEndpoints(endpoints =>
-{
-	endpoints.MapHub<ChatHub>("/chathub");
-});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+
+
+
 app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+{
+	endpoints.MapHub<ChatHub>("/chathub");
+});
 
 app.MapControllerRoute(
 	name: "default",
